@@ -28,6 +28,7 @@
       <DependentUpon>MyPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Shop.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserHistories.xaml.cs">
       <DependentUpon>UserHistories.xaml</DependentUpon>
       <SubType>Code</SubType>

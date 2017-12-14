@@ -2,13 +2,48 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:OPRegi_DisplayOnly"
-             x:Class="OPRegi_DisplayOnly.HistoryDetail">
+             x:Class="OPRegi_DisplayOnly.HistoryDetail"
+             Title="{Binding ShopName}">
     <ContentPage.Content>
-        <StackLayout>
+        <!--<StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <Label Text="{Binding ShopName}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-        </StackLayout>
+        </StackLayout>-->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+
+            <!-- 回数 -->
+            <StackLayout Grid.Row="0" BackgroundColor="Aquamarine" Orientation="Horizontal" VerticalOptions="FillAndExpand" Padding="0, 0, 0, 15">
+                <Label Text="回数: 3回" FontSize="Large" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+            
+            <!-- 履歴(Title) -->
+            <StackLayout Grid.Row="1"  Orientation="Horizontal" VerticalOptions="FillAndExpand" Padding="0, 0, 0, 15">
+                <Label Text=">> 履歴" FontSize="Large" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+            
+            <!-- 履歴詳細 -->
+            <ListView ItemsSource="{x:Static local:UserHistory.All}" ItemSelected="ListView_ItemSelected" RowHeight="60" Grid.Row="2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <BoxView WidthRequest="30" HeightRequest="30" Color="Aquamarine"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding ShopName}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

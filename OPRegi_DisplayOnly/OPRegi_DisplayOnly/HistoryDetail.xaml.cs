@@ -21,5 +21,10 @@ namespace OPRegi_DisplayOnly
             historyDetailViewModel.ShopName = selected.ShopName;
             this.BindingContext = historyDetailViewModel;
         }
-	}
+
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
+        }
+    }
 }

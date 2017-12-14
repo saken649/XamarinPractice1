@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:OPRegi_DisplayOnly"
+             x:Class="OPRegi_DisplayOnly.MyPage"
+             Title="マイページ トップ">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/><!-- ユーザー名 -->
+                <RowDefinition Height="60"/><!-- 最近行ったお店(タイトル) -->
+                <RowDefinition Height="180"/><!-- 最近行ったお店(リスト) -->
+                <RowDefinition Height="60"/><!-- 最近行ったお店(もっと見る) -->
+                <RowDefinition Height="2*"/><!-- レビューボタン -->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- ユーザー名表示エリア -->
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" BackgroundColor="Aquamarine" Grid.Row="0" Grid.Column="0">
+                <Label Text="真中らぁら" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="Large" x:Name="userNameArea"/>
+                <Label Text="としてログインしています" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+            
+            <!-- 最近行ったお店(タイトル) -->
+            <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="Aquamarine" Grid.Row="1" Grid.Column="0">
+                <Frame OutlineColor="Gray" HasShadow="False">
+                    <Label Text="> 最近行ったお店" FontSize="Large"/>
+                </Frame>
+            </StackLayout>
+
+            <!-- 最近行ったお店(リスト) -->
+            <!-- 要素は一旦Staticで書いておく=>多分Staticじゃダメなやつ -->
+            <ListView ItemsSource="{x:Static local:UserHistory.All}" ItemSelected="ListView_ItemSelected" RowHeight="60" Grid.Row="2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <BoxView WidthRequest="30" HeightRequest="30" Color="Aquamarine"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding ShopName}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <!-- 最近行ったお店(もっと見る) -->
+            <StackLayout Orientation="Vertical" Grid.Row="3" Grid.Column="0">
+                <Button Text="もっと見る" x:Name="BtnMoreHistory" Clicked="BtnMoreHistory_Clicked"/>
+            </StackLayout>
+            
+            <Label Text="Review" BackgroundColor="Aquamarine" Grid.Row="4" Grid.Column="0"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

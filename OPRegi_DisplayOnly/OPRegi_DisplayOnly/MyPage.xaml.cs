@@ -28,7 +28,7 @@ namespace OPRegi_DisplayOnly
 
             if (e.SelectedItem != null)
             {
-                await Navigation.PushAsync(new HistoryDetail((UserHistory)e.SelectedItem));
+                await Navigation.PushAsync(new HistoryList((Shop)e.SelectedItem));
             }
         }
     }

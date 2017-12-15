@@ -21,6 +21,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)HistoryDetailViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HistoryList.xaml.cs">
+      <DependentUpon>HistoryList.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -28,6 +32,8 @@
       <DependentUpon>MyPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)OrderFood.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shop.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserHistories.xaml.cs">
       <DependentUpon>UserHistories.xaml</DependentUpon>
@@ -49,6 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)HistoryDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)HistoryList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
